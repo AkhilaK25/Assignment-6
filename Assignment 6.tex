@@ -1,0 +1,82 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{babel}
+\usepackage{amsmath}
+
+\usepackage[breaklinks=true]{hyperref}
+
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+    \usepackage{amsmath}
+       
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\def\inputGnumericTable{}
+\bibliographystyle{IEEEtran}
+
+\newcommand{\question}{\noindent \textbf{Question: }}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+
+\title{Assignment 6}
+\author{AKHILA, CS21BTECH11031}
+
+\begin{document}
+% make the title area
+\maketitle
+\question\\
+Let $X \sim U\brak{0,1}$. Show that $Y= -2\log{X}$ is $\chi^2(2)$.\\
+
+\solution\\
+
+Given,  $X \sim U\brak{0,1}$
+\begin{align*}
+Y= -2\log{X}\\
+\implies x_1 = e^{-y/2}
+\end{align*}
+Cumulative distribution function of Y
+\begin{align*}
+F_Y(y) = \pr{Y\leq y} = \pr{-2\log{X}\leq y}\\ = \pr{X\leq e^{-y/2}}
+\end{align*}
+We have,
+\begin{align*}
+F_Y(y) = F_X(e^{-y/2})
+\end{align*}
+To find the Probability density function(pdf) of Y we simply differentiate both sides with respect to y:
+\begin{align*}
+f_Y(y)=\frac{-1}{2}e^{-y/2}f_X( e^{-y/2})\\
+f_Y(y)=\frac{-1}{2}e^{-y/2}U(y)\\
+\sim \text{Exponential(2)} \equiv \chi^2(2).
+\end{align*}
+
+\center (or)
+\begin{align*}
+Y= -2\log{X}\\
+\implies x_1 = e^{-y/2}\\
+\frac{dy}{dx}=\frac{-2}{x}=-2e^{y/2}\\
+f_Y(y)=\frac{1}{|\frac{dy}{dx}|}f_X(x_1)=\frac{1}{2}e^{-y/2}U(y)\\
+\sim \text{Exponential(2)} \equiv \chi^2(2).
+\end{align*}
+\end{document}

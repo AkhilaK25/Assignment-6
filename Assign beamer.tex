@@ -1,0 +1,71 @@
+\documentclass{beamer}
+
+\usetheme{CambridgeUS}
+\title{Assignment 6(Papoulis chap 5 Ex 5.18)} 
+\author{Akhila Kumbha,CS21BTECH11031}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\begin{document}
+
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+\logo{}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+\section{Question}
+\begin{frame}{Question}
+
+Let $X \sim U\brak{0,1}$. Show that $Y= -2\log{X}$ is $\chi^2(2)$.
+
+\end{frame}
+
+
+\section{Solution}
+\begin{frame}{Solution}
+Given,  $X \sim U\brak{0,1}$
+\begin{align*}
+Y= -2\log{X}\\
+\implies x_1 = e^{-y/2}
+\end{align*}
+Cumulative distribution function of Y
+\begin{align*}
+F_Y(y) = \pr{Y\leq y} = \pr{-2\log{X}\leq y}\\ = \pr{X\leq e^{-y/2}}
+\end{align*}
+We have,
+\begin{align*}
+F_Y(y) = F_X(e^{-y/2})
+\end{align*}
+
+\end{frame} 
+
+\begin{frame}
+.  To find the Probability density function(pdf) of Y we simply differentiate both sides with respect to y:
+\begin{align*}
+f_Y(y)=\frac{-1}{2}e^{-y/2}f_X( e^{-y/2})\\
+f_Y(y)=\frac{-1}{2}e^{-y/2}U(y)\\
+\sim \text{Exponential(2)} \equiv \chi^2(2).
+\end{align*} 
+\end{frame}
+\begin{frame}
+\center (or)\\
+\begin{align*}
+Y= -2\log{X}\\
+\implies x_1 = e^{-y/2}\\
+\frac{dy}{dx}=\frac{-2}{x}=-2e^{y/2}\\
+f_Y(y)=\frac{1}{|\frac{dy}{dx}|}f_X(x_1)=\frac{1}{2}e^{-y/2}U(y)\\
+\sim \text{Exponential(2)} \equiv \chi^2(2).
+\end{align*}
+\end{frame}
+
+\end{document}
